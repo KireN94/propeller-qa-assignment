@@ -3,6 +3,31 @@ describe('GraphQL API Tests for Users and Albums', () => {
 
   // --- USERS ---
 
+  it('Query: fetch user by ID successfully', () => {
+    cy.request({
+      method: 'POST',
+      url,
+      body: {
+        query: `
+          query ($id: ID!) {
+            user(id: $id) {
+              id
+              name
+              email
+            }
+          }
+        `,
+        variables: {
+          id: "4",
+        },
+      },
+    }).then((response) => {
+      expect(response.status).to.eq(200)
+      expect(response.body.data.user.id).to.eq("4")
+      expect(response.body.data.user).to.have.property('name')
+    })
+  })
+
   it('Query: fetch users successfully', () => {
     cy.request({
       method: 'POST',
@@ -23,6 +48,33 @@ describe('GraphQL API Tests for Users and Albums', () => {
     }).then((response) => {
       expect(response.status).to.eq(200)
       expect(response.body.data.users.data.length).to.be.greaterThan(0)
+    })
+  })
+
+  it('Query: fetch albums of a user', () => {
+    cy.request({
+      method: 'POST',
+      url,
+      body: {
+        query: `
+          query ($id: ID!) {
+            user(id: $id) {
+                albums {
+                    data {
+                    id
+                    title
+                    }
+                }
+             }
+          }
+        `,
+        variables: {
+          id: "1",
+        },
+      },
+    }).then((response) => {
+      expect(response.status).to.eq(200)
+      expect(response.body.data.user.albums.data.length).to.be.greaterThan(0)
     })
   })
 

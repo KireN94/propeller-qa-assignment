@@ -1,5 +1,6 @@
-📌 Propeller QA Assignment
-📝 Project Overview
+**📌 Propeller QA Assignment**
+
+**📝 Project Overview**
 
 This repository contains my solution for the QA Technical Assignment.
 The task demonstrates:
@@ -12,7 +13,7 @@ Handling errors and validations in API responses
 
 Integration with CI/CD (GitHub Actions) to run tests automatically
 
-🚀 Tech Stack
+**🚀 Tech Stack**
 
 Cypress (end-to-end testing framework)
 
@@ -22,7 +23,8 @@ GraphQL API: GraphQLZero
 
 GitHub Actions for CI/CD
 
-⚙️ Setup Instructions
+**⚙️ Setup Instructions**
+
 1️⃣ Clone the Repository
 
 git clone https://github.com/<KireN94>/propeller-qa-assignment.git

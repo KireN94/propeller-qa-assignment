@@ -1,11 +1,5 @@
 Setup Instructions
 
-# GraphQL API Tests (Cypress) 
-
-This project contains automated tests for the headless GraphQL API using **Cypress**.
-
-## 🚀 Run Locally
-
 1. Clone repo:
    ```bash
    git clone https://github.com/<KireN94>/graphql-api-tests-cypress.git

@@ -9,7 +9,7 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    timeout-minutes: 10 # prevent infinite hanging
+    timeout-minutes: 10
 
     steps:
       - name: Checkout code
@@ -23,11 +23,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Verify Cypress install
-        run: npx cypress verify
-
-      - name: Run Cypress tests (headless Chrome)
-        run: npx cypress run --browser chrome --headless
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+          headless: true
 
       - name: Upload Cypress screenshots (if failed)
         if: failure()

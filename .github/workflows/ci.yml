@@ -9,26 +9,31 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
 
     steps:
+      # Checkout repository
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # Setup Node.js environment
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
+      # Install project dependencies
       - name: Install dependencies
         run: npm install
 
+      # Run Cypress tests in headless Chrome
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
           browser: chrome
           headless: true
 
+      # Upload screenshots if any tests failed
       - name: Upload Cypress screenshots (if failed)
         if: failure()
         uses: actions/upload-artifact@v4
@@ -36,6 +41,7 @@ jobs:
           name: cypress-screenshots
           path: cypress/screenshots
 
+      # Upload Cypress videos regardless of test result
       - name: Upload Cypress videos (always)
         if: always()
         uses: actions/upload-artifact@v4

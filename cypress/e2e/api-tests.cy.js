@@ -44,7 +44,7 @@ describe('GraphQL API Tests for Users and Albums', () => {
         variables: {
           input: {
             name: "Kire",
-            username: "testuser123",
+            username: "kiren94",
             email: "test@example.com",
           },
         },

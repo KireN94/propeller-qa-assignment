@@ -44,8 +44,8 @@ describe('GraphQL API Tests for Users and Albums', () => {
         variables: {
           input: {
             name: "Kire",
-            username: "kiren94",
-            email: "test@example.com",
+            username: "KireN94",
+            email: "kire@test.com",
           },
         },
       },
@@ -53,6 +53,8 @@ describe('GraphQL API Tests for Users and Albums', () => {
       expect(response.status).to.eq(200)
       expect(response.body.data.createUser).to.have.property('id')
       expect(response.body.data.createUser.name).to.eq("Kire")
+      expect(response.body.data.createUser.username).to.eq("KireN94")
+      expect(response.body.data.createUser.email).to.eq("kire@test.com")
     })
   })
 
@@ -73,14 +75,15 @@ describe('GraphQL API Tests for Users and Albums', () => {
         variables: {
           id: "1", // pretend we’re updating user with ID 1
           input: {
-            name: "Updated User",
-            email: "updated@example.com",
+            name: "Updated Kire",
+            email: "updatedkire@test.com",
           },
         },
       },
     }).then((response) => {
       expect(response.status).to.eq(200)
-      expect(response.body.data.updateUser.name).to.eq("Updated User")
+      expect(response.body.data.updateUser.name).to.eq("Updated Kire")
+      expect(response.body.data.updateUser.email).to.eq("updatedkire@test.com")
     })
   })
 
@@ -150,7 +153,7 @@ describe('GraphQL API Tests for Users and Albums', () => {
         `,
         variables: {
           input: {
-            title: "Test Album",
+            title: "Test Kire's Album",
             userId: "1",
           },
         },
@@ -158,7 +161,7 @@ describe('GraphQL API Tests for Users and Albums', () => {
     }).then((response) => {
       expect(response.status).to.eq(200)
       expect(response.body.data.createAlbum).to.have.property('id')
-      expect(response.body.data.createAlbum.title).to.eq("Test Album")
+      expect(response.body.data.createAlbum.title).to.eq("Test Kire's Album")
     })
   })
 
@@ -178,13 +181,13 @@ describe('GraphQL API Tests for Users and Albums', () => {
         variables: {
           id: "1", // pretend we’re updating album with ID 1
           input: {
-            title: "Updated Album",
+            title: "Updated Kire's Album",
           },
         },
       },
     }).then((response) => {
       expect(response.status).to.eq(200)
-      expect(response.body.data.updateAlbum.title).to.eq("Updated Album")
+      expect(response.body.data.updateAlbum.title).to.eq("Updated Kire's Album")
     })
   })
 

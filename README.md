@@ -1,22 +1,43 @@
-# GraphQL API Tests (Cypress)
+**📌 Propeller QA Assignment**
 
-This project contains automated tests for the headless GraphQL API using **Cypress**.
+**📝 Project Overview**
 
-## 🚀 Run Locally
+This repository contains my solution for the QA Technical Assignment.
+The task demonstrates:
 
-1. Clone repo:
-   ```bash
-   git clone https://github.com/<your-username>/graphql-api-tests-cypress.git
-   cd graphql-api-tests-cypress
+End-to-End API testing with Cypress (JavaScript)
 
- 2. Install dependencies:
+Writing GraphQL queries and mutations to test users and albums
+
+Handling errors and validations in API responses
+
+Integration with CI/CD (GitHub Actions) to run tests automatically
+
+**🚀 Tech Stack**
+
+Cypress (end-to-end testing framework)
+
+JavaScript (Node.js)
+
+GraphQL API: GraphQLZero
+
+GitHub Actions for CI/CD
+
+**⚙️ Setup Instructions**
+
+1️⃣ Clone the Repository
+
+git clone https://github.com/<KireN94>/propeller-qa-assignment.git
+cd propeller-qa-assignment
+
+2️⃣ Install Dependencies
 
 npm install
 
-3. Run Cypress interactively:
+3️⃣ Run Cypress Tests in Headless Mode
 
-npm run cypress:open
+npx cypress run
 
-4. Run tests in terminal (headless):
+4️⃣ Run Cypress Tests in Interactive Mode
 
-npm test
+npx cypress open
